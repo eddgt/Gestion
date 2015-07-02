@@ -4,9 +4,8 @@ package org.openxava.gestion.modelo;
 import java.util.*;
 
 import javax.persistence.*;
-
-//import org.openxava.annotations.*;
-
+import javax.persistence.Entity;
+//import org.hibernate.annotations.*;
 
 
 
@@ -15,15 +14,15 @@ import javax.persistence.*;
 public class Ajuste  {
 
 	@Id //@Hidden
-    @GeneratedValue	
-	//@Column(name="id",length=10)
-	private String id;
+    @GeneratedValue //(generator="system-uuid")   
+	//@Column(name="id",length=32)
+	private Integer id;
 	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -98,18 +97,17 @@ public class Ajuste  {
 	
 	
 	// INICIO CÓDIGO A AÑADIR
-    @OneToMany//(mappedBy="ajuste")
+    @OneToMany(mappedBy="ajuste")
     
     private Collection<DetalleAjuste> ajustes;
  
     public Collection<DetalleAjuste> getAjustes() {
-        return ajustes;
-    }
- 
-    public void setAjustes(Collection<DetalleAjuste> ajustes) {
-        this.ajustes = ajustes;
-    }
+		return ajustes;
+	}
     
+    public void setAjustes(Collection<DetalleAjuste> ajustes) {
+		this.ajustes = ajustes;
+	}
     
     
     // FIN CÓDIGO A AÑADIR	

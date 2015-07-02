@@ -4,8 +4,8 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 //import javax.persistence.Table;
 
-import org.hibernate.annotations.*;
-import org.openxava.annotations.*;
+//import org.hibernate.annotations.*;
+//import org.openxava.annotations.*;
 
 
 
@@ -13,11 +13,11 @@ import org.openxava.annotations.*;
 //@Table(name="detalle_ajuste", schema="openxavadb")
 public class DetalleAjuste {
 	
-	 	@Id @Hidden     
-	    @GeneratedValue(generator="system-uuid")// Identificador Universal Único (1)
-	    @GenericGenerator(name="system-uuid", strategy ="uuid")
-	    @Column(name="id",length=32)
-	    private String id;
+	 	@Id //@Hidden     
+	    @GeneratedValue//(generator="system-uuid")// Identificador Universal Único (1)
+	    //@GenericGenerator(name="system-uuid", strategy ="uuid")
+	    @Column(name="idd",length=32)
+	    private String idd;
 
 	//@Column(name="cantidad",length=10)
 	private Integer cantidad;
@@ -31,12 +31,12 @@ public class DetalleAjuste {
 	//@Column(name="cod_articulo",length=20)
 	private String articulo;
 
-	public String getId() {
-		return id;
+	public String getIdd() {
+		return idd;
 	}
 	
-	public void setId(String id) {
-		this.id = id;
+	public void setIdd(String idd) {
+		this.idd = idd;
 	}
 	
 	public Integer getCantidad() {
@@ -86,9 +86,10 @@ public class DetalleAjuste {
 		this.id_ajuste = id_ajuste;
 	}*/
 	
+	
 	// INICIO CÓDIGO A AÑADIR
-    @ManyToOne
-    
+	//@DescriptionsList  // AÑADE ESTO
+    @ManyToOne    
     private Ajuste ajuste;
  
     public Ajuste getAjuste() {
@@ -98,5 +99,7 @@ public class DetalleAjuste {
     public void setAjuste(Ajuste ajuste) {
 		this.ajuste = ajuste;
 	}
+    
     // FIN CÓDIGO A AÑADIR
+    
 }
